@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Permutations Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #5887ec;
+        }
+        h1 {
+            text-align: center;
+            color: #0a0909;
+            font-style: italic;
+            font-size: xx-large;
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgb(109, 10, 214);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #060f94;
+            border-radius: 4px;
+        }
+        button {
+            height: 5vh;
+            width: 30vw;
+            margin-left: 50px;
+            padding: 10px;
+            background-color: #7fd7de;
+            color: rgb(19, 17, 17);
+            font-size: large;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgb(0,0, 0, 0.5);
+        }
+        button:hover {
+            background-color: #1381bd;
+            border-radius: 90px;
+            color: #0a0909;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e0f7fa;
+            border-radius: 4px;
+        }
+        .results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .results li {
+            background-color: #aae7dd;
+            padding: 8px;
+            border: 1px solid #ddd;
+            margin: 5px 0;
+            border-radius: 4px;
+            border:1px solid #170732;
+            font-size: large;
+        }
+        .num-permutations {
+            margin-bottom: 15px; /* Add space between number and list */
+            font-size: larger;
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generate Unique Permutations</h1>
+    <div class="container">
+        <form method="POST">
+            <label for="string_input">Enter a String:</label>
+            <input type="text" name="string_input" id="string_input" required>
+            <button type="submit">GENERATE PERMUTATIONS</button>
+        </form>
+
+        {% if permutations %}
+        <div class="results">
+            <div class="num-permutations">
+                <p>Total Unique Permutations: {{ num_permutations }}</p>
+            </div>
+            <h3>Unique Permutations:</h3>
+            <ul>
+                {% for perm in permutations %}
+                <li>{{ perm }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
